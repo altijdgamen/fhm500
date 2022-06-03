@@ -18,7 +18,7 @@ let totaalbedrag5 = 0;
 
 function vrouw1()
 {
-    let naam = "abby"
+    let naam = "Juultje"
     let prijs = 250;
     totaalbedrag1 = prijs;
     naam1 = naam
@@ -26,7 +26,7 @@ function vrouw1()
 }
 function vrouw2()
 {
-    let naam = "brett";
+    let naam = "Olivia";
     let prijs = 200;
     totaalbedrag2 = prijs;
     naam2 = naam
@@ -62,7 +62,7 @@ function bekijkTotaal()
     let totaal = totaalbedrag1 + totaalbedrag2;
     totaalbedragdiv.innerHTML = totaal;
     let aantalNaam = naam1 + ", " + naam2;
-    totaalAantalNaam.innerHTML = "je hebt de volgende NFT'S gekocht: " + aantalNaam
+    totaalAantalNaam.innerHTML = "je hebt de volgende NFT'S gekocht: " + aantalNaam + ","
     
 
 }
