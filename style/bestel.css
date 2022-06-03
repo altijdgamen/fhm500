@@ -1,0 +1,27 @@
+*{
+    color: white;
+}
+.header{
+    background-color: darkblue;
+    text-align: center;
+}
+
+
+.logo{
+    background-color: black;
+    width: 10%;
+    position: relative;
+}
+
+.mandje{
+    background-color: black;
+    width: 50%;
+    height: auto;
+    margin: auto;
+}
+
+.beschrijving{
+    background-color:  black;
+    width: 45%;
+    margin: auto;
+}

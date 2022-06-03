@@ -1,6 +1,7 @@
 let prijs = 0;
 let naam = "";
 
+
 let naam1 = "";
 let naam2 = "";
 let naam3 = "";
@@ -9,6 +10,7 @@ let naam5 = "";
 
 totaalbedragdiv = document.getElementById("totaal")
 totaalAantalNaam = document.getElementById("naam")
+
 let totaalbedrag1 = 0;
 let totaalbedrag2 = 0;
 let totaalbedrag3 = 0;
@@ -21,7 +23,8 @@ function vrouw1()
     let naam = "Juultje"
     let prijs = 250;
     totaalbedrag1 = prijs;
-    naam1 = naam
+    naam1 = naam;
+    
     bekijkTotaal();
 }
 function vrouw2()
@@ -34,8 +37,10 @@ function vrouw2()
 }
 function vrouw3()
 {
+    let naam = "adison"
     let prijs = 250;
     totaalbedrag3 = prijs;
+    naam3 = naam
     bekijkTotaal();
 }
 function vrouw4()
@@ -59,10 +64,12 @@ function vrouw5()
 
 function bekijkTotaal()
 {
-    let totaal = totaalbedrag1 + totaalbedrag2;
+    console.log("hallo")
+    let totaal = totaalbedrag1 + totaalbedrag2 + totaalbedrag3;
     totaalbedragdiv.innerHTML = totaal;
-    let aantalNaam = naam1 + ", " + naam2;
+    let aantalNaam = naam1 + ", " + naam2 + ", " + naam3 ; 
     totaalAantalNaam.innerHTML = "je hebt de volgende NFT'S gekocht: " + aantalNaam + ","
+    
     
 
 }
