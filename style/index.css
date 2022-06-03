@@ -1,0 +1,35 @@
+.header{
+    background-color: darkblue;
+    text-align: center;
+}
+
+
+.logo{
+    background-color: black;
+    width: 10%;
+    position: relative;
+}
+.container{
+    display: flex;
+}
+
+
+.bestellinks{
+    background-color: black;
+    width:40%;
+    margin-left: 5%;
+    text-align: center;
+    margin-bottom: 5%;
+    height: 20%;
+}
+
+.bestelrechts{
+    background-color: black;
+    width: 40%;
+    margin-right: 5%;
+    margin-left:10% ;
+
+    right: 0;
+    text-align: center;
+    margin-bottom: 5%;
+}
