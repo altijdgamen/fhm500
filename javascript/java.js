@@ -17,7 +17,7 @@ function vrouw1()
 }
 function vrouw2()
 {
-    let prijs = 250;
+    let prijs = 200;
     totaalbedrag2 = prijs;
     bekijkTotaal();
 }
