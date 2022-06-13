@@ -29,7 +29,7 @@ setTimeout(() => {
     zendBetaling(url, bestelnummer);
 }, 4000);
 
-
+ 
 function zendBestelling(url, bestelnummer, product, aantal, prijs){ 
     // Creating a XHR object 
     let xhr = new XMLHttpRequest(); 
