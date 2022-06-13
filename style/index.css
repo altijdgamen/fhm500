@@ -1,5 +1,5 @@
 .header{
-    background-color: darkblue;
+    background-color: #27251F;
     text-align: center;
 }
 
@@ -12,10 +12,13 @@
 .container{
     display: flex;
 }
+p{
+    color: white;
+}
 
 
 .bestellinks{
-    background-color: black;
+    background-color: #FFC72C;
     width:40%;
     margin-left: 5%;
     text-align: center;
@@ -24,7 +27,7 @@
 }
 
 .bestelrechts{
-    background-color: black;
+    background-color: #DA291C;
     width: 40%;
     margin-right: 5%;
     margin-left:10% ;

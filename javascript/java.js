@@ -1,75 +1,81 @@
-let prijs = 0;
-let naam = "";
+
+//de url waar het php bestand staat
+let url = "bestelzuil.php"
+
+//eerste bestelde product 
+let product = "Hamburger"; 
+let aantal = 2; 
+let prijs = 350;    //prijs in centen
 
 
-let naam1 = "";
-let naam2 = "";
-let naam3 = "";
-let naam4 = "";
-let naam5 = "";
+//aanroep van de functie
+let bestelnummer = document.getElementById("bestelnummer").value;
+zendBestelling(url, bestelnummer, product, aantal, prijs);
 
-totaalbedragdiv = document.getElementById("totaal")
-totaalAantalNaam = document.getElementById("naam")
+//Na 2 seconde wordt een tweede product besteld 
+//met hetzelfde bestelnummer (dus hoort het bij dezelfde bestelling)
+setTimeout(() => { 
+    bestelnummer = document.getElementById("bestelnummer").value;
+    product = "kipnuggets";
+    aantal = 1;
+    prijs = 300;
 
-let totaalbedrag1 = 0;
-let totaalbedrag2 = 0;
-let totaalbedrag3 = 0;
-let totaalbedrag4 = 0;
-let totaalbedrag5 = 0;
+    zendBestelling(url, bestelnummer, product, aantal, prijs);
+}, 2000);
 
-
-function vrouw1()
-{
-    let naam = "Juultje"
-    let prijs = 250;
-    totaalbedrag1 = prijs;
-    naam1 = naam;
-    
-    bekijkTotaal();
-}
-function vrouw2()
-{
-    let naam = "Olivia";
-    let prijs = 200;
-    totaalbedrag2 = prijs;
-    naam2 = naam
-    bekijkTotaal();
-}
-function vrouw3()
-{
-    let naam = "adison"
-    let prijs = 250;
-    totaalbedrag3 = prijs;
-    naam3 = naam
-    bekijkTotaal();
-}
-function vrouw4()
-{
-    let prijs = 250;
-    totaalbedrag4 = prijs;
-    bekijkTotaal();
-}
-function vrouw5()
-{
-    let prijs = 250;
-    totaalbedrag5 = prijs;
-    bekijkTotaal();
-}
+//na weer twee seconde wordt de bestelling betaald
+setTimeout(() => { 
+    bestelnummer = document.getElementById("bestelnummer").value;
+    zendBetaling(url, bestelnummer);
+}, 4000);
 
 
+function zendBestelling(url, bestelnummer, product, aantal, prijs){ 
+    // Creating a XHR object 
+    let xhr = new XMLHttpRequest(); 
 
+    // open a connection 
+    xhr.open("POST", url, true); 
 
+    // Set the request header i.e. which type of content you are sending 
+    xhr.setRequestHeader("Content-Type", "application/json"); 
 
+    // Create a state change callback 
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState === 4 && xhr.status === 200) {  
+            // Geef het bestelnummer als antwoord terug;
+            document.getElementById("bestelnummer").value = this.responseText; 
+        } 
+    }; 
 
+    // Converting JSON data to string 
+    var data = JSON.stringify({ "bestelnummer": bestelnummer, "product": product , "aantal": aantal, "prijs": prijs}); 
 
-function bekijkTotaal()
-{
-    console.log("hallo")
-    let totaal = totaalbedrag1 + totaalbedrag2 + totaalbedrag3;
-    totaalbedragdiv.innerHTML = totaal;
-    let aantalNaam = naam1 + ", " + naam2 + ", " + naam3 ; 
-    totaalAantalNaam.innerHTML = "je hebt de volgende NFT'S gekocht: " + aantalNaam + ","
-    
-    
+    // Sending data with the request 
+    xhr.send(data); 
+} 
 
+function zendBetaling(url, bestelnummer){ 
+    // Creating a XHR object 
+    let xhr = new XMLHttpRequest(); 
+
+    // open a connection 
+    xhr.open("POST", url, true); 
+
+    // Set the request header i.e. which type of content you are sending 
+    xhr.setRequestHeader("Content-Type", "application/json"); 
+
+    // Create a state change callback 
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState === 4 && xhr.status === 200) {    
+            // Geef het bestelnummer als antwoord terug;
+            document.getElementById("bestelnummer").value = "0"; 
+        } 
+    }; 
+
+    // Converting JSON data to string 
+    var data = JSON.stringify({ "bestelnummer": bestelnummer}); 
+   
+    // Sending data with the request 
+    xhr.send(data); 
 }
